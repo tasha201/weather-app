@@ -1,0 +1,196 @@
+body {
+  background: linear-gradient(#c08dbe, #72689a);
+  height: 100vh;
+  padding: 20px 86px 40px;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 70px;
+  line-height: 86px;
+  letter-spacing: -0.05em;
+  margin-bottom: 4px;
+}
+
+.country-color {
+  color: #e7dae9;
+}
+
+h2 {
+  font-weight: 200;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -0.05em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.time-color {
+  color: #ffffff;
+}
+
+.input-text {
+  width: 316px;
+  background: #ffffff;
+  border-radius: 5px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  color: #898787;
+  padding: 8px 0 8px 12px;
+  margin: 27px 20px 0 50px;
+}
+
+.search-button {
+  width: 125px;
+  height: 43px;
+  background: #9b8cb4;
+  border: 1px solid rgba(242, 240, 240, 0.5);
+  border-radius: 5px;
+  margin: 27px 12px 0 0;
+  padding: 8px 8px 8px 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+}
+
+.search-button:hover,
+.btn-current:hover {
+  border: 1px solid rgba(242, 240, 240, 0.5);
+}
+
+.btn-current {
+  width: 42px;
+  height: 43px;
+  background: #9b8cb4;
+  border: 1px solid rgba(242, 240, 240, 0.5);
+  border-radius: 5px;
+  margin-top: 27px;
+  padding: 8px 10px 10px;
+}
+
+.degree {
+  text-align: end;
+}
+
+.units {
+  font-weight: 200;
+  font-size: 30px;
+  line-height: 60px;
+}
+
+.units a {
+  text-decoration: none;
+  color: #e7dae9;
+}
+
+a.active {
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.temperature {
+  margin-top: 25px;
+}
+
+.day-night-temp {
+  width: 88px;
+  height: 80px;
+  text-align: center;
+}
+
+.day-temp,
+.night-temp {
+  font-weight: 200;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -0.05em;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.day-night-temp img {
+  margin-bottom: 10px;
+}
+
+hr {
+  width: 60px;
+  opacity: 0.75;
+  margin: 5px 0;
+}
+
+.weather-cond {
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: -0.05em;
+}
+
+.current-temp {
+  font-weight: 200;
+  font-size: 140px;
+  line-height: 182px;
+  color: #fffdff;
+}
+
+.other-conditions li {
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 12px;
+}
+
+.other-conditions img {
+  margin-right: 10px;
+}
+
+.card {
+  width: 126px;
+  height: 250px;
+  background: rgba(255, 253, 253, 0.2);
+  border-radius: 10px;
+  margin: 0 16px;
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 31px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.card-body img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 16px;
+}
+
+.day-night-temp-on-card {
+  width: 54px;
+  height: 76px;
+  display: block;
+  margin: 24px auto 0;
+  text-align: center;
+}
+
+.day-temp-on-card,
+.night-temp-on-card {
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: -0.05em;
+}
+
+.card-body hr {
+  width: 50px;
+}
