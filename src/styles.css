@@ -194,3 +194,19 @@ h4 {
 .card-body hr {
   width: 50px;
 }
+
+.footer {
+  text-align: center;
+  font-size: 13px;
+  color: rgb(235, 191, 235);
+  font-weight: 200;
+}
+
+.github-link {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 200;
+}
+
+.github-link:hover {
+  color: #ffffff;
+}
