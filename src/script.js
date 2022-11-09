@@ -58,7 +58,9 @@ if (minutes <= 9) {
 
 // Changing units
 function convertToFahrenheit(event) {
-  let celsiusTemperature = Number(document.querySelector('#current-temperature').textContent);
+  let celsiusTemperature = Number(
+    document.querySelector('#current-temperature').textContent
+  );
   event.preventDefault();
   let currentTemperature = document.querySelector('#current-temperature');
   celsiusLink.classList.remove('active');
@@ -85,3 +87,65 @@ fahrenheitLink.addEventListener('click', convertToFahrenheit);
 let celsiusLink = document.querySelector('#celsius');
 celsiusLink.addEventListener('click', convertToCelsius);
 
+//current position:  changing city, country, temperature, condition, humidity, wind speed,, sunrise, sunset
+function showTemperature(response) {
+  let cityElem = document.querySelector('#city');
+  cityElem.innerHTML = `${response.data.name}`;
+  cityElem.style.textTransform = 'capitalize';
+
+  let countryElem = document.querySelector('#country');
+  countryElem.innerHTML = `${response.data.sys.country}`;
+
+  let tempElem = document.querySelector('#current-temperature');
+  tempElem.innerHTML = `${Math.round(response.data.main.temp)}`;
+
+  let descriptionElem = document.querySelector('#description');
+  descriptionElem.innerHTML = `${response.data.weather[0].description}`;
+  descriptionElem.style.textTransform = 'capitalize';
+
+  let humidityElem = document.querySelector('#humidity');
+  humidityElem.innerHTML = `${response.data.main.humidity}`;
+
+  let windElem = document.querySelector('#wind-speed');
+  windElem.innerHTML = `${Math.round(response.data.wind.speed)}`;
+  
+  //sunrise
+  let sunriseElem = document.querySelector('#sunrise');
+  function sunrise() {
+    let unix_timestamp = response.data.sys.sunrise;
+    let date = new Date(unix_timestamp * 1000);
+    let hours = date.getHours();
+    let minutes = '0' + date.getMinutes();
+    let formattedTime = hours + ':' + minutes.substr(-2);
+    return formattedTime;
+  }
+  let sunriseTime = sunrise();
+  sunriseElem.innerHTML = sunriseTime;
+
+  //sunset
+  let sunsetElem = document.querySelector('#sunset');
+  function sunset() {
+    let unix_timestamp = response.data.sys.sunset;
+    let date = new Date(unix_timestamp * 1000);
+    let hours = date.getHours();
+    let minutes = '0' + date.getMinutes();
+    let formattedTime = hours + ':' + minutes.substr(-2);
+    return formattedTime;
+  }
+  let sunsetTime = sunset();
+  sunsetElem.innerHTML = sunsetTime;
+  console.log(response);
+}
+
+function current() {
+  function handlePosition(position) {
+    let apiKey = 'cde11fcb254a1b6acf6cc464209d076f';
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrlCurrent).then(showTemperature);
+  }
+  navigator.geolocation.getCurrentPosition(handlePosition);
+}
+let currentButton = document.querySelector('#current-button');
+currentButton.addEventListener('click', current);
