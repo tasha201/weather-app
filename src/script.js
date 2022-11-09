@@ -56,3 +56,32 @@ if (minutes <= 9) {
   document.querySelector('#minutes').style.fontWeight = '300';
 }
 
+// Changing units
+function convertToFahrenheit(event) {
+  let celsiusTemperature = Number(document.querySelector('#current-temperature').textContent);
+  event.preventDefault();
+  let currentTemperature = document.querySelector('#current-temperature');
+  celsiusLink.classList.remove('active');
+  fahrenheitLink.classList.add('active');
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  currentTemperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function convertToCelsius(event) {
+  let fahrenheitTemperature = Number(
+    document.querySelector('#current-temperature').textContent
+  );
+  event.preventDefault();
+  let currentTemperature = document.querySelector('#current-temperature');
+  celsiusLink.classList.add('active');
+  fahrenheitLink.classList.remove('active');
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  currentTemperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahrenheitLink = document.querySelector('#fahrenheit');
+fahrenheitLink.addEventListener('click', convertToFahrenheit);
+
+let celsiusLink = document.querySelector('#celsius');
+celsiusLink.addEventListener('click', convertToCelsius);
+
