@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+    <div class="container-fluid gx-0">
+      <div class="row">
+        <div class="col">
+          <ul>
+            <!-- city country date -->
+            <li>
+              <h1>
+                <span id="city">Mukachevo</span>
+                <span class="country-color">|</span>
+                <span class="country-color" id="country"> Ukraine</span>
+              </h1>
+            </li>
+            <li>
+              <h2>
+                <span id="day">Tuesday</span> <span>|</span>
+                <span id="month">October </span> <span id="date"> 11</span>
+                <span>|</span> <span id="year">2022</span>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <span class="time-color">
+                  <span id="hours">22</span>:<span id="minutes">50</span>
+                </span>
+              </h2>
+            </li>
+          </ul>
+        </div>
+        <div class="col ms-5 p-0">
+          <!--search-form -->
+          <form
+            class="input-group search-form justify-content-end pe-3"
+            id="search-form"
+          >
+            <div class="d-inline-flex flex-row flex-nowrap">
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Enter a city name"
+                class="form-control input-text"
+                autofocus="on"
+                autocomplete="off"
+              />
+              <button
+                type="submit"
+                value="Search"
+                class="btn search-button"
+                id="search-form"
+              >
+                <img src="icons/search-icon.svg" alt="search icon" />
+                Search
+              </button>
+
+              <button type="button" class="btn btn-current" id="current-button">
+                <img
+                  src="icons/location-sign.svg"
+                  alt="icon current location"
+                />
+              </button>
+            </div>
+          </form>
+
+          <!-- celsius / fahrenheit changing-->
+          <div class="degree pe-3">
+            <span class="units">
+              <a href="#" id="celsius" class="active">°C</a> <span>|</span>
+              <a href="#" id="fahrenheit">°F</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <ul
+        class="temperature d-flex flex-row justify-content-evenly align-items-start"
+      >
+        <li>
+          <!-- day & night-temperature -->
+          <div class="day-night-temp">
+            <span class="day-temp" id="max-temp">18°C </span>
+            <img src="icons/sun-day.svg" alt="sun icon" width="20" />
+
+            <hr />
+            <span class="night-temp" id="min-temp">8°C </span>
+            <img src="icons/moon-night.svg" alt="moon icon" width="20" />
+          </div>
+        </li>
+        <li>
+          <!-- current temperature-->
+          <ul class="d-flex flex-column">
+            <li class="weather-cond" id="description">Cloudy</li>
+            <li>
+              <ul class="d-flex flex-row">
+                <li>
+                  <img src="icons/cloud-n.svg" alt="" width="108" />
+                </li>
+                <li class="current-temp">
+                  <span id="current-temperature"> 0</span>°
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- other weather conditions -->
+        <li>
+          <ul class="other-conditions">
+            <li>
+              <img src="icons/umbrella.svg" alt="umbrella icon" width="20" />
+              Precipitation: <span id="precipitation">7</span>%
+            </li>
+            <li>
+              <img
+                src="icons/water-drop.svg"
+                alt="water drop icon"
+                width="20"
+              />
+              Humidity: <span id="humidity">80</span>%
+            </li>
+            <li>
+              <img src="icons/wind.svg" alt="wind icon" width="20" />
+              Wind: <span id="wind-speed">2</span> mph
+            </li>
+            <li>
+              <img src="icons/sunrise.svg" alt="sunrise icon" width="20" />
+              Sunrise: <span id="sunrise">6:30</span> 
+            </li>
+            <li>
+              <img src="icons/sunset.svg" alt="sunset icon" width="20" />
+              Sunset: <span id="sunset">19:00</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- daily weather cards -->
+      <div>
+        <ul
+          class="d-flex flex-row justify-content-center align-items-center flex-wrap p-0 mt-5"
+        >
+          <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4>Wed</h4>
+                <img src="icons/cloud-small.svg" alt="small cloud icon" />
+                <div class="day-night-temp-on-card">
+                  <span class="day-temp-on-card">18°C </span>
+                  <hr />
+                  <span class="night-temp-on-card">9°C </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4>Thu</h4>
+                <img src="icons/sun-small.svg" alt="sun icon" />
+                <div class="day-night-temp-on-card">
+                  <span class="day-temp-on-card">20°C </span>
+                  <hr />
+                  <span class="night-temp-on-card">7°C </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4>Fri</h4>
+                <img src="icons/rain-with-sun.svg" alt="rain with sun icon" />
+                <div class="day-night-temp-on-card">
+                  <span class="day-temp-on-card">16°C </span>
+                  <hr />
+                  <span class="night-temp-on-card">6°C </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4>Sat</h4>
+                <img src="icons/rain-with-sun.svg" alt="rain with sun icon" />
+                <div class="day-night-temp-on-card">
+                  <span class="day-temp-on-card">17°C </span>
+                  <hr />
+                  <span class="night-temp-on-card">8°C </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4>Sun</h4>
+                <img src="icons/sun-small.svg" alt="sun icon" />
+                <div class="day-night-temp-on-card">
+                  <span class="day-temp-on-card">19°C </span>
+                  <hr />
+                  <span class="night-temp-on-card">10°C </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4>Mon</h4>
+                <img src="icons/cloud-small.svg" alt="cloud icon" />
+                <div class="day-night-temp-on-card">
+                  <span class="day-temp-on-card">17°C </span>
+                  <hr />
+                  <span class="night-temp-on-card">9°C </span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="src/script.js"></script>
+</body>
+</html>
