@@ -149,3 +149,19 @@ function current() {
 }
 let currentButton = document.querySelector('#current-button');
 currentButton.addEventListener('click', current);
+
+//search of a city
+function searchCity(city) {
+  let apiKey = 'cde11fcb254a1b6acf6cc464209d076f';
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector('#search-input');
+  searchCity(searchInput.value);
+}
+
+let searchForm = document.querySelector('#search-form');
+searchForm.addEventListener('submit', handleSubmit);
