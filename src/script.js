@@ -87,6 +87,46 @@ fahrenheitLink.addEventListener('click', convertToFahrenheit);
 let celsiusLink = document.querySelector('#celsius');
 celsiusLink.addEventListener('click', convertToCelsius);
 
+// handle icons
+function displayImage(icon) {
+  let iconPath = "";
+  if (icon === `01d`) {
+    iconPath = "icons/01d.svg";
+  } else if (icon === `01n`) {
+    iconPath = 'icons/01n.svg';
+  } else if (icon === `02d`) {
+    iconPath = 'icons/02d.svg';
+  } else if (icon === `02n`) {
+    iconPath = 'icons/02n.svg';
+  } else if (icon === `03d` || icon === `03n`) {
+    iconPath = 'icons/03d.svg';
+  } else if (icon === `04d` || icon === `04n`) {
+    iconPath = 'icons/04d.svg';
+  } else if (icon === `09d` || icon === `09n`) {
+    iconPath = 'icons/09d.svg';
+  } else if (icon === `10d`) {
+    iconPath = 'icons/10d.svg';
+  } else if (icon === `10n`) {
+    iconPath = 'icons/10n.svg';
+  } else if (icon === `11d`) {
+    iconPath = 'icons/11d.svg';
+  } else if (icon === `11n`) {
+    iconPath = 'icons/11n.svg';
+  } else if (icon === `13d`) {
+    iconPath = 'icons/13d.svg';
+  } else if (icon === `13n`) {
+    iconPath = 'icons/13n.svg';
+  } else if (icon === `50d`) {
+    iconPath = 'icons/50d.svg';
+  } else if (icon === `50n`) {
+    iconPath = 'icons/50n.svg';
+  } else {
+    iconPath = 'icons/01d.svg';
+  }
+
+  return iconPath;
+}
+
 //current position:  changing city, country, temperature, condition, humidity, wind speed,, sunrise, sunset
 function showTemperature(response) {
   let cityElem = document.querySelector('#city');
@@ -108,7 +148,12 @@ function showTemperature(response) {
 
   let windElem = document.querySelector('#wind-speed');
   windElem.innerHTML = `${Math.round(response.data.wind.speed)}`;
-  
+
+  let iconElem = document.querySelector('#icon');
+  let iconResponse = response.data.weather[0].icon;
+  iconElem.setAttribute('src', displayImage(iconResponse));
+  iconElem.setAttribute('alt', response.data.weather[0].description);
+
   //sunrise
   let sunriseElem = document.querySelector('#sunrise');
   function sunrise() {
