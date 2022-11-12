@@ -30,7 +30,7 @@
               <h1>
                 <span id="city">Mukachevo</span>
                 <span class="country-color">|</span>
-                <span class="country-color" id="country"> Ukraine</span>
+                <span class="country-color" id="country"> UA</span>
               </h1>
             </li>
             <li>
@@ -97,17 +97,6 @@
         class="temperature d-flex flex-row justify-content-evenly align-items-start"
       >
         <li>
-          <!-- day & night-temperature -->
-          <div class="day-night-temp">
-            <span class="day-temp" id="max-temp">18°C </span>
-            <img src="icons/sun-day.svg" alt="sun icon" width="20" />
-
-            <hr />
-            <span class="night-temp" id="min-temp">8°C </span>
-            <img src="icons/moon-night.svg" alt="moon icon" width="20" />
-          </div>
-        </li>
-        <li>
           <!-- current temperature-->
           <ul class="d-flex flex-column">
             <li class="weather-cond" id="description">Cloudy</li>
@@ -158,17 +147,28 @@
       <!-- daily weather cards -->
       <div>
         <ul
-          class="d-flex flex-row justify-content-center align-items-center flex-wrap p-0 mt-4"
+          class="d-flex flex-row justify-content-evenly align-items-center flex-wrap p-0 mt-4"
         >
+        <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4>Tue</h4>
+                <img src="icons/03d.svg" alt="small cloud icon" width="64" />
+                <div class="day-night-temp-on-card">
+                  <span class="day-temp-on-card">16° </span>
+                  <span class="night-temp-on-card">10° </span>
+                </div>
+              </div>
+            </div>
+          </li>
           <li>
             <div class="card" style="width: 8rem">
               <div class="card-body">
                 <h4>Wed</h4>
                 <img src="icons/03d.svg" alt="small cloud icon" width="64" />
                 <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">18°C </span>
-                  <hr />
-                  <span class="night-temp-on-card">9°C </span>
+                  <span class="day-temp-on-card">18° </span>                 
+                  <span class="night-temp-on-card">9° </span>
                 </div>
               </div>
             </div>
@@ -179,9 +179,8 @@
                 <h4>Thu</h4>
                 <img src="icons/01d.svg" alt="sun icon" width="64" />
                 <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">20°C </span>
-                  <hr />
-                  <span class="night-temp-on-card">7°C </span>
+                  <span class="day-temp-on-card">20° </span>
+                  <span class="night-temp-on-card">7° </span>
                 </div>
               </div>
             </div>
@@ -192,9 +191,8 @@
                 <h4>Fri</h4>
                 <img src="icons/10d.svg" alt="rain with sun icon" width="64" />
                 <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">16°C </span>
-                  <hr />
-                  <span class="night-temp-on-card">6°C </span>
+                  <span class="day-temp-on-card">16° </span>
+                  <span class="night-temp-on-card">6° </span>
                 </div>
               </div>
             </div>
@@ -205,9 +203,8 @@
                 <h4>Sat</h4>
                 <img src="icons/11d.svg" alt="rain with sun icon" width="64" />
                 <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">17°C </span>
-                  <hr />
-                  <span class="night-temp-on-card">8°C </span>
+                  <span class="day-temp-on-card">17° </span>
+                  <span class="night-temp-on-card">8° </span>
                 </div>
               </div>
             </div>
@@ -218,9 +215,8 @@
                 <h4>Sun</h4>
                 <img src="icons/50d.svg" alt="sun icon" width="64" />
                 <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">19°C </span>
-                  <hr />
-                  <span class="night-temp-on-card">10°C </span>
+                  <span class="day-temp-on-card">19° </span>
+                  <span class="night-temp-on-card">10° </span>
                 </div>
               </div>
             </div>
@@ -231,9 +227,8 @@
                 <h4>Mon</h4>
                 <img src="icons/04d.svg" alt="cloud icon" width="64" />
                 <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">17°C </span>
-                  <hr />
-                  <span class="night-temp-on-card">9°C </span>
+                  <span class="day-temp-on-card">17° </span>
+                  <span class="night-temp-on-card">9° </span>
                 </div>
               </div>
             </div>

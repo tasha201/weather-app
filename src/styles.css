@@ -1,6 +1,6 @@
 body {
   background: linear-gradient(#c08dbe, #72689a);
-  height: 100vh;
+  height: 100%;
   padding: 20px 86px 40px;
   font-family: 'Inter', sans-serif;
   color: #ffffff;
@@ -100,32 +100,7 @@ a.active {
 
 .temperature {
   margin-top: 25px;
-}
-
-.day-night-temp {
-  width: 88px;
-  height: 80px;
-  text-align: center;
-}
-
-.day-temp,
-.night-temp {
-  font-weight: 200;
-  font-size: 30px;
-  line-height: 36px;
-  letter-spacing: -0.05em;
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-}
-
-.day-night-temp img {
-  margin-bottom: 10px;
-}
-
-hr {
-  width: 60px;
-  opacity: 0.75;
-  margin: 5px 0;
+  margin-left: 250px;
 }
 
 .weather-cond {
@@ -155,10 +130,14 @@ hr {
 
 .card {
   width: 126px;
-  height: 250px;
+  height: 213px;
   background: rgba(255, 253, 253, 0.2);
   border-radius: 10px;
-  margin: 0 16px;
+  /* margin: 0 16px; */
+}
+
+.card-body {
+  padding: 20px;
 }
 
 h4 {
@@ -176,8 +155,8 @@ h4 {
 }
 
 .day-night-temp-on-card {
-  width: 54px;
-  height: 76px;
+  width: 80px;
+  height: 30px;
   display: block;
   margin: 24px auto 0;
   text-align: center;
@@ -191,8 +170,9 @@ h4 {
   letter-spacing: -0.05em;
 }
 
-.card-body hr {
-  width: 50px;
+.night-temp-on-card {
+  margin-left: 5px;
+  color: #FFC7C7;
 }
 
 .footer {
@@ -200,6 +180,7 @@ h4 {
   font-size: 13px;
   color: rgb(235, 191, 235);
   font-weight: 200;
+  margin-top: 37px;
 }
 
 .github-link {
