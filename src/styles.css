@@ -133,7 +133,6 @@ a.active {
   height: 213px;
   background: rgba(255, 253, 253, 0.2);
   border-radius: 10px;
-  /* margin: 0 16px; */
 }
 
 .card-body {
@@ -149,12 +148,13 @@ h4 {
 }
 
 .card-body img {
+  width: 64px;
   display: block;
   margin: 0 auto;
   margin-top: 16px;
 }
 
-.day-night-temp-on-card {
+.forecast-temperature {
   width: 80px;
   height: 30px;
   display: block;
@@ -162,15 +162,15 @@ h4 {
   text-align: center;
 }
 
-.day-temp-on-card,
-.night-temp-on-card {
+.forecast-temp-max,
+.forecast-temp-min {
   font-weight: 200;
   font-size: 24px;
   line-height: 29px;
   letter-spacing: -0.05em;
 }
 
-.night-temp-on-card {
+.forecast-temp-min {
   margin-left: 5px;
   color: #FFC7C7;
 }

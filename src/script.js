@@ -89,9 +89,9 @@ celsiusLink.addEventListener('click', convertToCelsius);
 
 // handle icons
 function displayImage(icon) {
-  let iconPath = "";
+  let iconPath = '';
   if (icon === `01d`) {
-    iconPath = "icons/01d.svg";
+    iconPath = 'icons/01d.svg';
   } else if (icon === `01n`) {
     iconPath = 'icons/01n.svg';
   } else if (icon === `02d`) {
@@ -125,6 +125,37 @@ function displayImage(icon) {
   }
 
   return iconPath;
+}
+
+function displayForecast() {
+  let forecastElem = document.querySelector('#forecast');
+
+  let forecastHTML = `<div class="d-flex flex-row justify-content-evenly align-items-center flex-wrap p-0 mt-4">`;
+  let days = [
+    'Sun',
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat',
+  ];
+  days.forEach(function(day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="card" style="width: 8rem">
+        <div class="card-body">
+            <h4 class="forecast-day">${day}</h4>
+            <img src="icons/03d.svg" alt="small cloud icon" />
+            <div class="forecast-temperature">
+              <span class="forecast-temp-max">16° </span>
+              <span class="forecast-temp-min">10° </span>
+            </div>
+        </div>
+      </div>`;
+  })
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElem.innerHTML = forecastHTML;
 }
 
 //current position:  changing city, country, temperature, condition, humidity, wind speed,, sunrise, sunset
@@ -210,3 +241,5 @@ function handleSubmit(event) {
 
 let searchForm = document.querySelector('#search-form');
 searchForm.addEventListener('submit', handleSubmit);
+
+displayForecast();

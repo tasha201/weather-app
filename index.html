@@ -145,96 +145,103 @@
       </ul>
 
       <!-- daily weather cards -->
-      <div>
-        <ul
-          class="d-flex flex-row justify-content-evenly align-items-center flex-wrap p-0 mt-4"
-        >
-        <li>
-            <div class="card" style="width: 8rem">
-              <div class="card-body">
-                <h4>Tue</h4>
-                <img src="icons/03d.svg" alt="small cloud icon" width="64" />
-                <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">16° </span>
-                  <span class="night-temp-on-card">10° </span>
-                </div>
+      <div id="forecast">
+        <!-- <div class="d-flex flex-row justify-content-evenly align-items-center flex-wrap p-0 mt-4">
+          <div class="card" style="width: 8rem">
+            <div class="card-body">
+              <h4 class="forecast-day">Tue</h4>
+              <img src="icons/03d.svg" alt="small cloud icon" />
+              <div class="forecast-temperature">
+                <span class="forecast-temp-max">16° </span>
+                <span class="forecast-temp-min">10° </span>
               </div>
             </div>
-          </li>
-          <li>
-            <div class="card" style="width: 8rem">
-              <div class="card-body">
-                <h4>Wed</h4>
-                <img src="icons/03d.svg" alt="small cloud icon" width="64" />
-                <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">18° </span>                 
-                  <span class="night-temp-on-card">9° </span>
-                </div>
+          </div>
+          <div class="card" style="width: 8rem">
+            <div class="card-body">
+              <h4 class="forecast-day">Tue</h4>
+              <img src="icons/03d.svg" alt="small cloud icon" />
+              <div class="forecast-temperature">
+                <span class="forecast-temp-max">16° </span>
+                <span class="forecast-temp-min">10° </span>
               </div>
             </div>
-          </li>
-          <li>
-            <div class="card" style="width: 8rem">
-              <div class="card-body">
-                <h4>Thu</h4>
-                <img src="icons/01d.svg" alt="sun icon" width="64" />
-                <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">20° </span>
-                  <span class="night-temp-on-card">7° </span>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="card" style="width: 8rem">
-              <div class="card-body">
-                <h4>Fri</h4>
-                <img src="icons/10d.svg" alt="rain with sun icon" width="64" />
-                <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">16° </span>
-                  <span class="night-temp-on-card">6° </span>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="card" style="width: 8rem">
-              <div class="card-body">
-                <h4>Sat</h4>
-                <img src="icons/11d.svg" alt="rain with sun icon" width="64" />
-                <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">17° </span>
-                  <span class="night-temp-on-card">8° </span>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="card" style="width: 8rem">
-              <div class="card-body">
-                <h4>Sun</h4>
-                <img src="icons/50d.svg" alt="sun icon" width="64" />
-                <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">19° </span>
-                  <span class="night-temp-on-card">10° </span>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="card" style="width: 8rem">
-              <div class="card-body">
-                <h4>Mon</h4>
-                <img src="icons/04d.svg" alt="cloud icon" width="64" />
-                <div class="day-night-temp-on-card">
-                  <span class="day-temp-on-card">17° </span>
-                  <span class="night-temp-on-card">9° </span>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
+          </div>
+        </div> -->
       </div>
+        <!--<li>
+             <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4 class="forecast-day">Wed</h4>
+                <img src="icons/03d.svg" alt="small cloud icon" />
+                <div class="forecast-temperature">
+                  <span class="forecast-temp-max">18° </span>                 
+                  <span class="forecast-temp-min">9° </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4 class="forecast-day">Thu</h4>
+                <img src="icons/01d.svg" alt="sun icon" />
+                <div class="forecast-temperature">
+                  <span class="forecast-temp-max">20° </span>
+                  <span class="forecast-temp-min">7° </span>
+                </div>
+              </div>
+            </div>
+          </li> -->
+        <!-- <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4 class="forecast-day">Fri</h4>
+                <img src="icons/10d.svg" alt="rain with sun icon" />
+                <div class="forecast-temperature">
+                  <span class="forecast-temp-max">16° </span>
+                  <span class="forecast-temp-min">6° </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4 class="forecast-day">Sat</h4>
+                <img src="icons/11d.svg" alt="rain with sun icon" />
+                <div class="forecast-temperature">
+                  <span class="forecast-temp-max">17° </span>
+                  <span class="forecast-temp-min">8° </span>
+                </div>
+              </div>
+            </div>
+          </li> -->
+        <!-- <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4 class="forecast-day">Sun</h4>
+                <img src="icons/50d.svg" alt="sun icon" />
+                <div class="forecast-temperature">
+                  <span class="forecast-temp-max">19° </span>
+                  <span class="forecast-temp-min">10° </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="card" style="width: 8rem">
+              <div class="card-body">
+                <h4 class="forecast-day">Mon</h4>
+                <img src="icons/04d.svg" alt="cloud icon" />
+                <div class="forecast-temperature">
+                  <span class="forecast-temp-max">17° </span>
+                  <span class="forecast-temp-min">9° </span>
+                </div>
+              </div>
+            </div>
+          </li> -->
+      
       <footer class="footer">
         <span>
           This Weather App was designed and coded by Natalia Pavlyk and is
