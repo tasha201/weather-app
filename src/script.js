@@ -127,35 +127,54 @@ function displayImage(icon) {
   return iconPath;
 }
 
-function displayForecast() {
+//Changing day of the week in forecast
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  return days[day];
+}
+
+//Displaying the forecast
+function displayForecast(response) {
+  // console.log(response);
+  let forecast = response.data.daily;
   let forecastElem = document.querySelector('#forecast');
 
   let forecastHTML = `<div class="d-flex flex-row justify-content-evenly align-items-center flex-wrap p-0 mt-4">`;
-  let days = [
-    'Sun',
-    'Mon',
-    'Tue',
-    'Wed',
-    'Thu',
-    'Fri',
-    'Sat',
-  ];
-  days.forEach(function(day) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="card" style="width: 8rem">
-        <div class="card-body">
-            <h4 class="forecast-day">${day}</h4>
-            <img src="icons/03d.svg" alt="small cloud icon" />
-            <div class="forecast-temperature">
-              <span class="forecast-temp-max">16° </span>
-              <span class="forecast-temp-min">10° </span>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="card" style="width: 8rem">
+            <div class="card-body">
+              <h4 class="forecast-day">${formatDay(forecastDay.dt)}</h4>
+              <img src="${displayImage(
+                forecastDay.weather[0].icon
+              )}" 
+              alt=" icon" />
+              <div class="forecast-temperature">
+                <span class="forecast-temp-max">${Math.round(
+                  forecastDay.temp.max
+                )}° </span>
+                <span class="forecast-temp-min">${Math.round(
+                  forecastDay.temp.min
+                )}° </span>
+              </div>
             </div>
-        </div>
-      </div>`;
-  })
+          </div>`;
+    }
+  });
   forecastHTML = forecastHTML + `</div>`;
   forecastElem.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  //console.log(coordinates);
+  let apiKey = '203fa770242fcd2b9555d832a88ea567';
+  let apiUrlNew = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlNew).then(displayForecast);
 }
 
 //current position:  changing city, country, temperature, condition, humidity, wind speed,, sunrise, sunset
@@ -210,7 +229,9 @@ function showTemperature(response) {
   }
   let sunsetTime = sunset();
   sunsetElem.innerHTML = sunsetTime;
-  console.log(response);
+  // console.log(response);
+
+  getForecast(response.data.coord);
 }
 
 function current() {
@@ -242,4 +263,4 @@ function handleSubmit(event) {
 let searchForm = document.querySelector('#search-form');
 searchForm.addEventListener('submit', handleSubmit);
 
-displayForecast();
+searchCity('Mukachevo');
